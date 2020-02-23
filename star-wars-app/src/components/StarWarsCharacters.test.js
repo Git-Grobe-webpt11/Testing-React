@@ -1,15 +1,19 @@
 import React from 'react';
-import * as rtl from "@testing-library/react";
 import App from "../App";
+import * as rtl from "@testing-library/react";
+import axios from "axios";
+import { getData as mockGetData } from '../api';
+import StarWarsCharacters from './StarWarsCharacters';
+import { fireEvent } from "@testing-library/react";
 
 describe ("<StarWarsCharacters/> Tests", () => {
 
-    it("should render <App/>", async () => {
-        const wrapper = rtl.render(<App />);
+    it("should render <StarWarsCharacters/>", async () => {
+        const wrapper = rtl.render(<StarWarsCharacters/>);
     });
 
     it("should render previous & next button", async () => {
-        const wrapper = rtl.render(<App />);
+        const wrapper = rtl.render(<StarWarsCharacters/>);
         const prevButton = wrapper.getByText(/previous/i);
         const nextButton = wrapper.getByText(/next/i);
         expect(prevButton).toBeVisible();
@@ -22,6 +26,13 @@ describe ("<StarWarsCharacters/> Tests", () => {
         expect(logo[0]).toBeVisible();
     });
 
+})
+
+describe ("Async mock tests", () => {
+
+    it("should", async () => {
+        const wrapper = rtl.render(<StarWarsCharacters />);
+    });
 })
 
 
